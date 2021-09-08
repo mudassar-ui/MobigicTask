@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobigic_task/home.dart';
+import 'package:mobigic_task/splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,11 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: Splash(),
     );
   }
 }
