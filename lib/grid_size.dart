@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mobigic_task/grid_text.dart';
 
 class GridSize extends StatefulWidget {
@@ -27,13 +28,21 @@ class _GridSizeState extends State<GridSize> {
           key: _form,
           child: ListView(
             children: [
+              Text(
+                'Please enter Grid size - Max(6*4)',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Enter Rows'),
+                decoration:
+                    InputDecoration(labelText: 'Enter number of Rows (Max-6)'),
                 controller: row,
                 keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
                 validator: (row) {
                   if (row!.isEmpty) {
-                    return 'Please provide a value.';
+                    return 'Please provide a number.';
                   }
                   if (int.parse(row) > 6) {
                     return 'value should be 6 or less than 6';
@@ -45,12 +54,13 @@ class _GridSizeState extends State<GridSize> {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Enter Columns'),
+                decoration: InputDecoration(
+                    labelText: 'Enter number of Columns (Max-4)'),
                 controller: column,
                 keyboardType: TextInputType.number,
                 validator: (column) {
                   if (column!.isEmpty) {
-                    return 'Please provide a value.';
+                    return 'Please provide a number.';
                   }
                   if (int.parse(column) > 4) {
                     return 'value should be 4 or less than 4';
@@ -87,9 +97,9 @@ class _GridSizeState extends State<GridSize> {
                 child: Text(
                   "Next",
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ],

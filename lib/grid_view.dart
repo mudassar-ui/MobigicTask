@@ -20,7 +20,8 @@ class _GridScreenState extends State<GridScreen> {
 
   void matchText() {
     List<int> charactersNum = [];
-    String searchKey = searchText.text.toLowerCase();
+    String? searchKey = searchText.text.toLowerCase();
+
     //find alphabet positions
     for (var i = 0; i < searchKey.length; i++) {
       if (widget.characters.contains(searchKey[i])) {
@@ -74,8 +75,8 @@ class _GridScreenState extends State<GridScreen> {
                 .pushReplacement(MaterialPageRoute(builder: (_) => GridSize()));
           },
           child: Text(
-            "Go to Home",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            "Reset",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
         ),
@@ -122,13 +123,13 @@ class _GridScreenState extends State<GridScreen> {
               Form(
                 key: _form,
                 child: TextFormField(
-                  decoration: InputDecoration(labelText: 'Enter Alphabets'),
+                  decoration: InputDecoration(labelText: 'Search Alphabets'),
                   style: TextStyle(fontWeight: FontWeight.bold),
                   controller: searchText,
                   maxLength: widget.rowC * widget.colC,
                   validator: (searchText) {
                     if (searchText!.isEmpty) {
-                      return 'Please provide a value.';
+                      return 'Please provide search alphabets.';
                     }
 
                     return null;
@@ -149,9 +150,9 @@ class _GridScreenState extends State<GridScreen> {
                 child: Text(
                   "Match Alphabets",
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ),
             ],

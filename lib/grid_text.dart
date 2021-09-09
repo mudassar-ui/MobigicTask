@@ -85,9 +85,9 @@ class _GridTextState extends State<GridText> {
                 child: Text(
                   "Next",
                   style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               )
             ],
